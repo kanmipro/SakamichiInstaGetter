@@ -338,11 +338,11 @@ class LoginComponent {
         //   .subscribe((response) => {
         //     this.response = response.body.toString();
         //   });
-        // const testurl =
-        //   authUrl +
-        //   '?' +
-        //   'client_id=671132790569653&redirect_uri=https://kanmipro.github.io/SakamichiInstaGetter/SakamichiInstaGetter/auth&response_typecode&scope=code';
+        const testurl = authUrl +
+            '?' +
+            'client_id=671132790569653&redirect_uri=https://kanmipro.github.io/SakamichiInstaGetter/SakamichiInstaGetter/auth&response_typecode&scope=code';
         // this.router.navigate([testurl]);
+        window.location.href = testurl;
     }
 }
 LoginComponent.ɵfac = function LoginComponent_Factory(t) { return new (t || LoginComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"])); };
