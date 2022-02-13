@@ -502,7 +502,7 @@ class TopComponent {
 TopComponent.ɵfac = function TopComponent_Factory(t) { return new (t || TopComponent)(); };
 TopComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: TopComponent, selectors: [["app-top"]], decls: 4, vars: 0, consts: [["routerLink", "/login", "role", "button", 1, "btn", "btn-primary"]], template: function TopComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "span");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1, "Ver:1.0");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1, "Ver:2.0");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "a", 0);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](3, "\u8A8D\u8A3C");
