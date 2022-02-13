@@ -53,18 +53,18 @@ const routes = [
     { path: 'list', component: _list_list_component__WEBPACK_IMPORTED_MODULE_4__["ListComponent"] },
     { path: 'auth', component: _auth_auth_component__WEBPACK_IMPORTED_MODULE_2__["AuthComponent"] },
     { path: '', redirectTo: '/home', pathMatch: 'full' },
-    { path: '**', redirectTo: '/home', pathMatch: 'full' }
+    { path: '**', redirectTo: '/home', pathMatch: 'full' },
 ];
 class AppRoutingModule {
 }
 AppRoutingModule.ɵmod = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineNgModule"]({ type: AppRoutingModule });
-AppRoutingModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjector"]({ factory: function AppRoutingModule_Factory(t) { return new (t || AppRoutingModule)(); }, imports: [[_angular_router__WEBPACK_IMPORTED_MODULE_1__["RouterModule"].forRoot(routes)], _angular_router__WEBPACK_IMPORTED_MODULE_1__["RouterModule"]] });
+AppRoutingModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjector"]({ factory: function AppRoutingModule_Factory(t) { return new (t || AppRoutingModule)(); }, imports: [[_angular_router__WEBPACK_IMPORTED_MODULE_1__["RouterModule"].forRoot(routes, { useHash: true })], _angular_router__WEBPACK_IMPORTED_MODULE_1__["RouterModule"]] });
 (function () { (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsetNgModuleScope"](AppRoutingModule, { imports: [_angular_router__WEBPACK_IMPORTED_MODULE_1__["RouterModule"]], exports: [_angular_router__WEBPACK_IMPORTED_MODULE_1__["RouterModule"]] }); })();
 /*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](AppRoutingModule, [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["NgModule"],
         args: [{
-                imports: [_angular_router__WEBPACK_IMPORTED_MODULE_1__["RouterModule"].forRoot(routes)],
-                exports: [_angular_router__WEBPACK_IMPORTED_MODULE_1__["RouterModule"]]
+                imports: [_angular_router__WEBPACK_IMPORTED_MODULE_1__["RouterModule"].forRoot(routes, { useHash: true })],
+                exports: [_angular_router__WEBPACK_IMPORTED_MODULE_1__["RouterModule"]],
             }]
     }], null, null); })();
 
@@ -317,7 +317,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
 class LoginComponent {
     constructor(http, router) {
         this.http = http;
@@ -327,22 +326,12 @@ class LoginComponent {
     ngOnInit() { }
     ngAfterViewInit() {
         // Instagramの認証ウィンドウを取得
-        const authUrl = 'https://api.instagram.com/oauth/authorize';
-        const httpParams = new _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpParams"]({});
-        httpParams.append('client_id', '671132790569653');
-        httpParams.append('redirect_uri', 'https://kanmipro.github.io/SakamichiInstaGetter/SakamichiInstaGetter/auth');
-        httpParams.append('response_type', 'code');
-        httpParams.append('scope', 'code');
-        // this.http
-        //   .get(authUrl, { params: httpParams, observe: 'response' })
-        //   .subscribe((response) => {
-        //     this.response = response.body.toString();
-        //   });
-        const testurl = authUrl +
-            '?' +
-            'client_id=671132790569653&redirect_uri=https://kanmipro.github.io/SakamichiInstaGetter/SakamichiInstaGetter/auth&response_typecode&scope=code';
-        // this.router.navigate([testurl]);
-        window.location.href = testurl;
+        const authUrl = new URL('https://api.instagram.com/oauth/authorize');
+        authUrl.searchParams.append('client_id', '4954791494559458');
+        authUrl.searchParams.append('redirect_uri', 'https://kanmipro.github.io/SakamichiInstaGetter/SakamichiInstaGetter/auth');
+        authUrl.searchParams.append('response_type', 'code');
+        authUrl.searchParams.append('scope', 'code');
+        window.location.href = authUrl.toString();
     }
 }
 LoginComponent.ɵfac = function LoginComponent_Factory(t) { return new (t || LoginComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"])); };
