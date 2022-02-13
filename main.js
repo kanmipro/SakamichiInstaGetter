@@ -330,7 +330,7 @@ class LoginComponent {
         authUrl.searchParams.append('client_id', '4954791494559458');
         authUrl.searchParams.append('redirect_uri', 'https://kanmipro.github.io/SakamichiInstaGetter/SakamichiInstaGetter/auth');
         authUrl.searchParams.append('response_type', 'code');
-        authUrl.searchParams.append('scope', 'code');
+        authUrl.searchParams.append('scope', 'user_profile,user_media');
         window.location.href = authUrl.toString();
     }
 }
