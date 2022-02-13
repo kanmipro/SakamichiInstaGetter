@@ -144,6 +144,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _auth_delete_delete_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./auth/delete/delete.component */ "./src/app/auth/delete/delete.component.ts");
 /* harmony import */ var _auth_login_login_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./auth/login/login.component */ "./src/app/auth/login/login.component.ts");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/http.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+
 
 
 
@@ -169,6 +171,7 @@ AppModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjector
             _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_7__["BrowserAnimationsModule"],
             ngx_bootstrap_tooltip__WEBPACK_IMPORTED_MODULE_2__["TooltipModule"].forRoot(),
             _angular_common_http__WEBPACK_IMPORTED_MODULE_13__["HttpClientModule"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_14__["RouterModule"],
         ]] });
 (function () { (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵsetNgModuleScope"](AppModule, { declarations: [_app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"],
         _top_top_component__WEBPACK_IMPORTED_MODULE_5__["TopComponent"],
@@ -179,7 +182,8 @@ AppModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjector
         _auth_delete_delete_component__WEBPACK_IMPORTED_MODULE_11__["DeleteComponent"],
         _auth_login_login_component__WEBPACK_IMPORTED_MODULE_12__["LoginComponent"]], imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
         _app_routing_module__WEBPACK_IMPORTED_MODULE_3__["AppRoutingModule"],
-        _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_7__["BrowserAnimationsModule"], ngx_bootstrap_tooltip__WEBPACK_IMPORTED_MODULE_2__["TooltipModule"], _angular_common_http__WEBPACK_IMPORTED_MODULE_13__["HttpClientModule"]] }); })();
+        _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_7__["BrowserAnimationsModule"], ngx_bootstrap_tooltip__WEBPACK_IMPORTED_MODULE_2__["TooltipModule"], _angular_common_http__WEBPACK_IMPORTED_MODULE_13__["HttpClientModule"],
+        _angular_router__WEBPACK_IMPORTED_MODULE_14__["RouterModule"]] }); })();
 /*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵsetClassMetadata"](AppModule, [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"],
         args: [{
@@ -199,9 +203,10 @@ AppModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjector
                     _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_7__["BrowserAnimationsModule"],
                     ngx_bootstrap_tooltip__WEBPACK_IMPORTED_MODULE_2__["TooltipModule"].forRoot(),
                     _angular_common_http__WEBPACK_IMPORTED_MODULE_13__["HttpClientModule"],
+                    _angular_router__WEBPACK_IMPORTED_MODULE_14__["RouterModule"],
                 ],
                 providers: [],
-                bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"]]
+                bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"]],
             }]
     }], null, null); })();
 
@@ -319,7 +324,8 @@ class LoginComponent {
         this.router = router;
         this.response = '通信中...';
     }
-    ngOnInit() {
+    ngOnInit() { }
+    ngAfterViewInit() {
         // Instagramの認証ウィンドウを取得
         const authUrl = 'https://api.instagram.com/oauth/authorize';
         const httpParams = new _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpParams"]({});
@@ -332,10 +338,11 @@ class LoginComponent {
         //   .subscribe((response) => {
         //     this.response = response.body.toString();
         //   });
-        const testurl = authUrl +
-            '?' +
-            'client_id=671132790569653&redirect_uri=https://kanmipro.github.io/SakamichiInstaGetter/SakamichiInstaGetter/auth&response_typecode&scope=code';
-        this.router.navigate([testurl]);
+        // const testurl =
+        //   authUrl +
+        //   '?' +
+        //   'client_id=671132790569653&redirect_uri=https://kanmipro.github.io/SakamichiInstaGetter/SakamichiInstaGetter/auth&response_typecode&scope=code';
+        // this.router.navigate([testurl]);
     }
 }
 LoginComponent.ɵfac = function LoginComponent_Factory(t) { return new (t || LoginComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"])); };
@@ -504,9 +511,12 @@ class TopComponent {
     }
 }
 TopComponent.ɵfac = function TopComponent_Factory(t) { return new (t || TopComponent)(); };
-TopComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: TopComponent, selectors: [["app-top"]], decls: 2, vars: 0, consts: [["routerLink", "/login", "role", "button", 1, "btn", "btn-primary"]], template: function TopComponent_Template(rf, ctx) { if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "a", 0);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1, "\u8A8D\u8A3C");
+TopComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: TopComponent, selectors: [["app-top"]], decls: 4, vars: 0, consts: [["routerLink", "/login", "role", "button", 1, "btn", "btn-primary"]], template: function TopComponent_Template(rf, ctx) { if (rf & 1) {
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "span");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1, "Ver:1.0");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "a", 0);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](3, "\u8A8D\u8A3C");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     } }, directives: [_angular_router__WEBPACK_IMPORTED_MODULE_1__["RouterLinkWithHref"]], styles: ["\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3RvcC90b3AuY29tcG9uZW50LnNjc3MifQ== */"] });
 /*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](TopComponent, [{
